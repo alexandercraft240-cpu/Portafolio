@@ -552,6 +552,61 @@ body.cursor-hover .cursor-ring {
 .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* ──────────────────────────────────────────────
+   BOTÓN TOGGLE DE IDIOMA  ES ↔ EN
+   ────────────────────────────────────────────── */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 99px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+/* Muestra sólo el idioma activo — el otro se oculta */
+.lang-toggle .lang-es,
+.lang-toggle .lang-en {
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+/* Por defecto muestra ES, oculta EN */
+.lang-toggle .lang-en {
+  display: none;
+}
+
+/* Cuando el idioma activo es EN → mostrar EN, ocultar ES */
+.lang-toggle[data-lang="en"] .lang-es { display: none; }
+.lang-toggle[data-lang="en"] .lang-en { display: inline; }
+.lang-toggle[data-lang="es"] .lang-es { display: inline; }
+.lang-toggle[data-lang="es"] .lang-en { display: none; }
+
+/* En móvil reducir un poco */
+@media (max-width: 768px) {
+  .lang-toggle {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.72rem;
+  }
+}
+
 
 /* ================================================================
    6. SECCIÓN HERO
@@ -1248,6 +1303,64 @@ body.cursor-hover .cursor-ring {
 .project-link:hover {
   gap: 0.7rem;
   opacity: 1;
+}
+
+/* Fila de links inferior en cada proyecto */
+.project-links-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+/* Botón "Ver código en GitHub" */
+.project-link-gh {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+  opacity: 0.85;
+}
+
+.project-link-gh:hover {
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+/* Bloque de detalles del proyecto (problema + aprendizaje) */
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0.9rem 0;
+  padding: 0.9rem 1rem;
+  background: rgba(56,189,248,0.04);
+  border-left: 2px solid var(--border-hover);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.project-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.project-detail-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project-detail-text {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
 }
 
 
