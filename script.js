@@ -191,6 +191,8 @@ const translations = {
     'skills.cat3':         'Herramientas',
     'skills.integrations': 'Integraciones',
     'skills.ai':           'IA Aplicada',
+    'skills.pandas':       'Pandas',
+    'skills.fastapi':      'FastAPI',
 
     /* Proyectos */
     'projects.label':         '03. Proyectos',
@@ -296,6 +298,8 @@ const translations = {
     'skills.cat3':         'Tools',
     'skills.integrations': 'Integrations',
     'skills.ai':           'Applied AI',
+    'skills.pandas':       'Pandas',
+    'skills.fastapi':      'FastAPI',
 
     /* Projects */
     'projects.label':         '03. Projects',
